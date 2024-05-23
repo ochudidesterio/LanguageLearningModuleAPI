@@ -14,9 +14,9 @@ This Spring Boot project provides an API for managing language learning modules,
 1. ### Creat MySQL database
    ```CREATE DATABASE zeraki;```
 2. ### Configure the Database in Spring Boot:
-   Update the src/main/resources/application.properties file with your MySQL database configuration:
+   Update the src/main/resources/application.properties or yaml file with your MySQL database configuration:
    ```
-      spring.datasource.url=jdbc:mysql://localhost:3306/learning_module_db
+      spring.datasource.url=jdbc:mysql://localhost:3306/zeraki
       spring.datasource.username=your_mysql_username
       spring.datasource.password=your_mysql_password
       spring.jpa.hibernate.ddl-auto=update
