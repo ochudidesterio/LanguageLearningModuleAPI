@@ -23,7 +23,7 @@ public class UserController {
         }catch (Exception e){
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("An error occurred while registering user");
+                    .body(e.getMessage());
         }
     }
     @GetMapping("/getAll")
@@ -34,7 +34,7 @@ public class UserController {
         }catch (Exception e){
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("An error occurred while retrieving users");
+                    .body(e.getMessage());
         }
     }
 }

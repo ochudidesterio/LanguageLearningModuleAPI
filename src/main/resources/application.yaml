@@ -1,28 +1,28 @@
 ##### MYSQL configuration
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    username: ${DB_USER}
-#    url: jdbc:mysql://127.0.0.1:3306/zeraki
-#    password: ${DB_PASS}
-#  application:
-#    name: learning-language-module-api
-#  jpa:
-#    show-sql: 'true'
-#    hibernate:
-#      ddl-auto: update
-
-####### H2 database configuration
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USER}
+    url: jdbc:mysql://127.0.0.1:3306/zeraki
+    password: ${DB_PASS}
+  application:
+    name: learning-language-module-api
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-  h2:
-    console.enabled: true
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+
+####### H2 database configuration
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:mydb
+#    username: sa
+#    password: password
+#    driverClassName: org.h2.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#  h2:
+#    console.enabled: true
 
 server:
   port: 8080

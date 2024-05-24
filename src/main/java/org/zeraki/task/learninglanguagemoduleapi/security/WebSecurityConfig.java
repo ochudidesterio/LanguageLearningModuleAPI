@@ -9,11 +9,13 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.zeraki.task.learninglanguagemoduleapi.models.user.CustomUserDetailsService;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -22,6 +24,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
+    private final CustomUserDetailsService customUserDetailsService;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -39,22 +42,27 @@ public class WebSecurityConfig {
                 )
                 // Enable HTTP Basic authentication
                 .headers(headers->headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
+                .userDetailsService(userDetailsService())
                 .httpBasic(withDefaults());
 
         return http.build();
 
     }
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user = User
-                .withUsername("user")
-                .password(passwordEncoder().encode("password"))
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(user);
-    }
+//    @Bean
+//    public InMemoryUserDetailsManager userDetailsService() {
+//        UserDetails user = User
+//                .withUsername("user")
+//                .password(passwordEncoder().encode("password"))
+//                .roles("USER")
+//                .build();
+//        return new InMemoryUserDetailsManager(user);
+//    }
 
+    @Bean
+    public UserDetailsService userDetailsService(){
+        return customUserDetailsService;
+    }
 
 
 

@@ -1,7 +1,6 @@
 package org.zeraki.task.learninglanguagemoduleapi.models.progress;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.zeraki.task.learninglanguagemoduleapi.models.exercise.Exercise;
 import org.zeraki.task.learninglanguagemoduleapi.models.exercise.ExerciseScoreDTO;
@@ -16,7 +15,6 @@ import org.zeraki.task.learninglanguagemoduleapi.service.UserProgressService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

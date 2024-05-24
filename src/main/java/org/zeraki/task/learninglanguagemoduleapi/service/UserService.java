@@ -10,4 +10,5 @@ public interface UserService {
     Optional<AppUser>findUserById(Long userId);
     List<AppUser>getAllUsers();
     Optional<AppUser>findByUsername(String username);
+    boolean existsByUsername(String username);
 }

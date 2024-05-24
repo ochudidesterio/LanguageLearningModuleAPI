@@ -19,8 +19,12 @@ public class UserServiceImpl implements UserService {
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     @Override
     public AppUser registerUser(AppUser appUser) {
+        if(existsByUsername(appUser.getUsername())){
+            throw new RuntimeException("User with username exists");
+        }
         appUser.setRole(AccountType.USER);
         appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
+
         return userRepository.save(appUser);
     }
 
@@ -38,5 +42,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<AppUser> findByUsername(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
     }
 }
