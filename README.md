@@ -30,7 +30,7 @@ This Spring Boot project provides an API for managing language learning modules,
   ```java -jar target/learning-language-module-api.jar```
 
 ## Access the API documentation
- - Swagger: ```http://localhost:8080/swagger-ui.html```
+ - Swagger: ```http://localhost:8080/swagger-ui/index.html```
 ## API endpoints
    The API provides endpoints for managing user data, lessons, exercises, and user progress tracking. Some key endpoints include:
   - /user: CRUD operations for managing users.

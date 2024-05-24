@@ -35,6 +35,8 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/lesson/getAll").permitAll()
                         .requestMatchers(HttpMethod.GET,"/exercise/getAll").permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/h2-console/**")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/swagger-ui/**")).permitAll()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher("/v3/api-docs/**") ).permitAll()
                         // Require authentication for all other requests
                         .anyRequest().authenticated()
                 )
