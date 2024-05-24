@@ -17,10 +17,7 @@ public class LessonServiceImpl implements LessonService {
         return lessonRepository.save(lesson);
     }
 
-    @Override
-    public Optional<Lesson> getLessonById(Long lessonId) {
-        return lessonRepository.findById(lessonId);
-    }
+
 
     @Override
     public List<Lesson> getAllLessons() {

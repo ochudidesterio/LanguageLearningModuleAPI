@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.zeraki.task.learninglanguagemoduleapi.models.exercise.Exercise;
 import org.zeraki.task.learninglanguagemoduleapi.models.progress.UserProgress;
+import org.zeraki.task.learninglanguagemoduleapi.models.userlessons.UserLesson;
 
 import java.util.List;
 import java.util.Set;
@@ -27,6 +28,9 @@ public class Lesson {
     @JsonIgnore
     private Set<UserProgress> progress;
 
+    @OneToMany(mappedBy = "lesson")
+    @JsonIgnore
+    private Set<UserLesson>userLessons;
 
 
 }

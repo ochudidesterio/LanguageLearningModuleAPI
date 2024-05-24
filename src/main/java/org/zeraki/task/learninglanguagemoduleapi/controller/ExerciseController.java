@@ -16,13 +16,13 @@ public class ExerciseController {
     private final ExerciseService exerciseService;
 
     @GetMapping("/getAll")
-    @Operation(summary = "Get all exercises")
+    @Operation(summary = "Get all exercises that belong to a lesson")
     public ResponseEntity<?>getAllExercises(@RequestParam(name = "lessonId") Long lessonId){
         try{
             return ResponseEntity.ok(exerciseService.getAllExercisesByLessonId(lessonId));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Failed to retrieve exercises");
+                    .body(e.getMessage());
         }
     }
 
@@ -33,7 +33,7 @@ public class ExerciseController {
             return ResponseEntity.ok(exerciseService.createExercise(exercise));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("An error occurred when creating an exercise");
+                    .body(e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class ExerciseController {
             return ResponseEntity.ok(exerciseService.addExerciseToLesson(exerciseId,lessonId));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Failed to add an exercise to a lesson");
+                    .body(e.getMessage());
         }
     }
 

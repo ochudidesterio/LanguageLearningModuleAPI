@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface UserService {
     AppUser registerUser(AppUser appUser);
-    Optional<AppUser>findUserById(Long userId);
     List<AppUser>getAllUsers();
-    Optional<AppUser>findByUsername(String username);
     boolean existsByUsername(String username);
 }

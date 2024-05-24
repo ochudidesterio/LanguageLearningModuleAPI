@@ -22,6 +22,7 @@ This Spring Boot project provides an API for managing language learning modules,
       spring.jpa.hibernate.ddl-auto=update
       spring.jpa.show-sql=true
       spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+      server.port=8080
    ```
 ## Build Project
   ```mvn clean package```
@@ -37,6 +38,10 @@ This Spring Boot project provides an API for managing language learning modules,
   - /exercise: CRUD operations for managing exercises.
   - /progress: Endpoints for tracking user progress
 
-
+## Testing 
+   The project includes both unit tests and integration tests to ensure the correctness and reliability of the application. 
+   ### Note
+   Use H2 database configurations to run your tests in the terminal:
+   ```mvn test```
    
 

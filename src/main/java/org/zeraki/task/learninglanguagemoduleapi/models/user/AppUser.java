@@ -7,6 +7,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.zeraki.task.learninglanguagemoduleapi.models.enums.AccountType;
+import org.zeraki.task.learninglanguagemoduleapi.models.progress.UserProgress;
+import org.zeraki.task.learninglanguagemoduleapi.models.userlessons.UserLesson;
 
 import java.util.Collection;
 import java.util.List;
@@ -31,6 +33,9 @@ public class AppUser implements UserDetails {
 //    @OneToMany(mappedBy = "appUser",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //    @JsonIgnore
 //    private Set<UserProgress> progress;
+//    @OneToMany(mappedBy = "user")
+//    @JsonIgnore
+//    private Set<UserLesson>userLessons;
 
 
 

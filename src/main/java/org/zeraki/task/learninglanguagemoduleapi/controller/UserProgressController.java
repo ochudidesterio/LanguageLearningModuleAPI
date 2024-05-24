@@ -29,7 +29,7 @@ public class UserProgressController {
     }
 
     @GetMapping("/get")
-    @Operation(summary = "Get progress by userId")
+    @Operation(summary = "Get user progress by userId")
     public ResponseEntity<?>findallByUserId(@RequestParam(name = "userId") Long userId,
                                             @RequestParam(name = "lessonId") Long lessonId){
         try{
@@ -42,7 +42,7 @@ public class UserProgressController {
         }
 
     @GetMapping("/lesson-status")
-    @Operation(summary = "Determine if a lesson is completed by user")
+    @Operation(summary = "Determine if a lesson is completed by user by passing user id and lesson id")
     public ResponseEntity<?>isLessonComplete(@RequestParam(name = "userId") Long userId,
                                             @RequestParam(name = "lessonId") Long lessonId){
         try{

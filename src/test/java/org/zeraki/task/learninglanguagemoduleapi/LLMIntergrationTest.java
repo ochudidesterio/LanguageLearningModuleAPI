@@ -21,7 +21,7 @@ public class LLMIntergrationTest {
 
     @Test
     public void testRegisterUser() throws Exception {
-        String requestBody = "{\"username\": \"testuser\", \"password\": \"testpass\"}";
+        String requestBody = "{\"username\": \"user\", \"password\": \"testpass\"}";
 
         mockMvc.perform(MockMvcRequestBuilders.post("/user/register")
                         .contentType("application/json")

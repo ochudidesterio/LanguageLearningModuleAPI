@@ -27,9 +27,7 @@ public class WebSecurityConfig {
     private final CustomUserDetailsService customUserDetailsService;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                // Disable CSRF
-                .csrf(csrf -> csrf.disable())
+        http.csrf(csrf -> csrf.disable())// Disable CSRF
                 // Configure URL-based authorization
                 .authorizeHttpRequests(auth -> auth
                         // Allowed requests without authentication
@@ -40,9 +38,9 @@ public class WebSecurityConfig {
                         // Require authentication for all other requests
                         .anyRequest().authenticated()
                 )
-                // Enable HTTP Basic authentication
                 .headers(headers->headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .userDetailsService(userDetailsService())
+                // Enable HTTP Basic authentication
                 .httpBasic(withDefaults());
 
         return http.build();

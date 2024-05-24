@@ -28,10 +28,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(appUser);
     }
 
-    @Override
-    public Optional<AppUser> findUserById(Long userId) {
-        return userRepository.findById(userId);
-    }
+
 
 
     @Override
@@ -39,10 +36,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public Optional<AppUser> findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
+
 
     @Override
     public boolean existsByUsername(String username) {
