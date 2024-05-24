@@ -37,6 +37,7 @@ This Spring Boot project provides an API for managing language learning modules,
   - /lesson: CRUD operations for managing lessons.
   - /exercise: CRUD operations for managing exercises.
   - /progress: Endpoints for tracking user progress
+  - /userlesson: Endpoints to enroll a user to a lesson
 
 ## Testing 
    The project includes both unit tests and integration tests to ensure the correctness and reliability of the application. 
