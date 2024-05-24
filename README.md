@@ -44,5 +44,62 @@ This Spring Boot project provides an API for managing language learning modules,
    ### Note
    Use H2 database configurations to run your tests in the terminal:
    ```mvn test```
-   
 
+## API Testing step by step
+
+### Basic Auth User
+Name: ```testuser```
+Password: ```password```
+
+1. Create users 
+   POST request to ```http://localhost/user/register```
+   ```
+   {
+   "firstname":"Baraka",
+   "lastname":"Osman",
+   "password":"12345",
+   "username":"osman"
+   }
+   ```
+   
+2. ### Create a lesson 
+   POST request to ```http://localhost/lesson/create```
+   ```
+   {
+   "title":"History 100"
+   }
+   ``` 
+     
+3. ### Create an exercise
+   POST request to ```http://localhost/exercise/create```
+   ```
+   {
+   "description":"People and Population",
+   "score":30
+   }
+   ```
+   
+4. ### Add an exercise to a lesson
+   POST request to ```http://localhost/exercise/add-lesson?lessonId=1&exerciseId=1```
+   ```@Params```
+   ```lessonId``` and ```exerciseId```
+
+5. ### Create user score for a particular lesson on a given exercise
+   POST request to ```http://localhost/progress/save?userScore=29&userId=1&exerciseId=1&lessonId=1```
+   ```@Params```
+   ```userScore``` , ```userId```, ```exerciseId``` and ```lessonId```
+   
+6. ### To get user progress per lesson
+   GET request to ```http://localhost/progress/get?lessonId=1&userId=1```
+   ```@Params```
+   ```lessonId``` and ```userId```
+
+7. ### To check if user has completed a lesson
+   GET request to ```http://localhost/progress/lesson-status?lessonId=1&userId=1```
+   ```@Params```
+   ```userId``` and ```lessonId```
+
+8. ### To recommend user to next lesson 
+   GET request to ```http://localhost/progress/recommendation?lessonId=1&userId=1```
+   ```@Params```
+   ```lessonId``` and ```userId```
